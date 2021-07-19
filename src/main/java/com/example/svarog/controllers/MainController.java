@@ -1,10 +1,6 @@
-package com.example.svarog.controller;
+package com.example.svarog.controllers;
 
-import com.example.svarog.NotFoundException;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import com.example.svarog.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +26,7 @@ public class MainController {
 //        return "hello " + name;
 //    }
       private int counter =4;
+
       private List<Map<String,String>> messages = new ArrayList<Map<String,String>>() {{
               add(new HashMap<String, String>() {{put("id", "1");put("text", "First message");}});
               add(new HashMap<String, String>() {{put("id", "2");put("text", "Second message");}});

@@ -1,4 +1,4 @@
-package com.example.svarog;
+package com.example.svarog.controllers;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
