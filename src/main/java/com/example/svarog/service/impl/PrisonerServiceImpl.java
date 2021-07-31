@@ -1,7 +1,6 @@
 package com.example.svarog.service.impl;
 
 import com.example.svarog.entity.Prisoner;
-import com.example.svarog.entity.Questionnaire;
 import com.example.svarog.repository.PrisonerRepository;
 import com.example.svarog.repository.QuestionnaireRepository;
 import com.example.svarog.service.PrisonerService;
@@ -24,13 +23,10 @@ public class PrisonerServiceImpl implements PrisonerService {
     @Override
     public UUID CreateOrUpdatePrisoner(Prisoner prisoner) {
         UUID id = prisonerRepository.save(prisoner).getId();
-        if (!prisoner.getQuestionnaires().isEmpty()) {
-            List<Questionnaire> questionnaires = prisoner.getQuestionnaires();
-            questionnaires.forEach(e -> {
-                e.setPrisoner(prisoner);
-                questionnaireRepository.save(e);
-            });
-        }
+        prisoner.getQuestionnaires().forEach(e -> {
+            e.setPrisoner(prisoner);
+            questionnaireRepository.save(e);
+        });
         return id;
     }
 
