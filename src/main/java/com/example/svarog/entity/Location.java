@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Data
 @Entity
@@ -12,9 +13,11 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "location")
 public class Location {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue
+    @Column(name = "ID")
+    private UUID id;
 
     @Column
     private String state;
@@ -32,6 +35,6 @@ public class Location {
     private String bomj;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "prisoner_id", nullable = false)
+    @JoinColumn(name = "prisoner_id")
     private Prisoner prisoner;
 }

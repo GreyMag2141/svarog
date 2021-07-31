@@ -1,29 +1,33 @@
 package com.example.svarog.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Entity
-//@NoArgsConstructor
+@Builder
+@NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = {"questionnaires"})
+@EqualsAndHashCode(exclude = {"questionnaires"})
 @Table(name = "prisoner")
+@DynamicUpdate
 public class Prisoner {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue
+    @Column(name = "ID")
+    private UUID id;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
-    @Column(nullable = false)
+    @Column
     private String sername;
 
     @Column

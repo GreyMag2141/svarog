@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Data
 @Entity
@@ -13,8 +14,9 @@ import javax.persistence.*;
 @Table(name = "arrival")
 public class Arrival {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue
+    @Column(name = "ID")
+    private UUID id;
 
     @Column(nullable = false)
     private String data;
@@ -29,7 +31,7 @@ public class Arrival {
     private String where_directed;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "prisoner_id", nullable = false)
+    @JoinColumn(name = "prisoner_id")
     private Prisoner prisoner;
 
  }
