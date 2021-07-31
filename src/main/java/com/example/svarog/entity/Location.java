@@ -10,29 +10,28 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "questionnaire")
-public class Questionnaire {
+@Table(name = "location")
+public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String state;
 
-    @Column(nullable = false)
+    @Column
     private String region;
 
-    @Column(nullable = false)
+    @Column
     private String city;
 
-    @Column(nullable = false)
-    private String citizenship;
+    @Column
+    private String address;
 
     @Column
-    private String nationality;
+    private String bomj;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "prisoner_id", nullable = false)
     private Prisoner prisoner;
-
 }
