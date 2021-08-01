@@ -47,8 +47,15 @@ public class Prisoner {
         MAN,
         WOMAN
     }
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "prisoner", orphanRemoval = true)
     @Builder.Default
     private List<Questionnaire> questionnaires = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "prisoner", orphanRemoval = true)
+    @Builder.Default
+    private List<Arrival> arrivals = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "prisoner", orphanRemoval = true)
+    @Builder.Default
+    private List<Location> locations = new ArrayList<>();
 }
