@@ -34,10 +34,10 @@ public class Prisoner {
     private String patronymic;
 
     @Column(nullable = false)
-    private ZonedDateTime date_birth;
+    private ZonedDateTime dateBirth;
 
     @Column
-    private String personal_number; // № Личное дело
+    private String personalNumber; // № Личное дело
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
