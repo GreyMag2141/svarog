@@ -18,8 +18,6 @@ import java.util.UUID;
 @Api(tags = "PrisonerController", description = "API for svarog")
 public class PrisonerController {
 
-//    private final PrisonerRepository repository;
-
     private final PrisonerService prisonerService;
 
     @GetMapping
